@@ -1,5 +1,5 @@
-window.onresize = function() {
-    var iframe = window.parent.document.getElementById('miIframe');
+function onResize() {
+    var iframe = window.parent.document.getElementById('iframe');
     iframe.style.width = window.style.width;
     iframe.style.height = window.style.height;
 }
