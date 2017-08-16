@@ -13,7 +13,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Open+Sans">
-
+<link href="C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/static/css/stylePanel.css" rel="stylesheet">
 
 <style>
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -29,9 +29,8 @@
 
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#myNavbar">
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
 				</button>
 
 				<a class="navbar-brand" href="#">CoreVises</a>
@@ -39,31 +38,20 @@
 
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li>
-						<input style="margin-top: 7px;" class="form-control"
-							type="text" id="search" placeholder="Ingresa tu criterio de busqueda"
-							size=40px>
-					</li>
-					<li>
-						<a href="#" id="btn-search">
-							<span class="glyphicon glyphicon-search"></span>
-							Buscar
-						</a>
-					</li>
+					<li><input style="margin-top: 7px;" class="form-control"
+						type="text" id="search"
+						placeholder="Ingresa tu criterio de busqueda" size=40px></li>
+					<li><a href="#" id="btn-search"> <span
+							class="glyphicon glyphicon-search"></span> Buscar
+					</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="#">
-							<span class="glyphicon glyphicon-user"></span>
+					<li><a href="#"> <span class="glyphicon glyphicon-user"></span>
 							Login
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="glyphicon glyphicon-inbox"></span>
+					</a></li>
+					<li><a href="#"> <span class="glyphicon glyphicon-inbox"></span>
 							Sing Up
-						</a>
-					</li>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -88,7 +76,7 @@
 						width : 'toggle'
 					}).focus();
 				} else {
-					location.href="catalogoProductos?search="+text;
+					location.href = "catalogoProductos?search=" + text;
 				}
 			});
 

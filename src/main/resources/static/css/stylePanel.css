@@ -1,0 +1,15 @@
+body {
+	background-image: url("C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/images/categories/black_lozenge.png");
+}
+
+.panel-default > #principalHeading {
+	background-color:  #1a1a1a;
+	color: #999999;
+	font-size: 40px;
+}
+
+.panel-default > #categoryHeading {
+	background-color:  #1a1a1a;
+	color:  #999999;
+	font-size: 20px;
+}
