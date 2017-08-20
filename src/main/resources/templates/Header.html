@@ -11,16 +11,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Open+Sans">
-<link href="C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/static/css/stylePanel.css" rel="stylesheet">
+<link th:href="@{/css/stylePanel.css}" rel="stylesheet">
 
-<style>
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-	width: 100%;
-	margin: auto;
-}
-</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -76,7 +68,7 @@
 						width : 'toggle'
 					}).focus();
 				} else {
-					location.href = "catalogoProductos?search=" + text;
+					location.href = "List?search=" + text;
 				}
 			});
 

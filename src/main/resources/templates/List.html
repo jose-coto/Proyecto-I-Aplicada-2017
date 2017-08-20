@@ -10,9 +10,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Open+Sans">
-<link href="C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/static/css/stylePanel.css" rel="stylesheet">
+
+<link th:href="@{/css/stylePanel.css}" rel="stylesheet">
 </head>
 </head>
 <body>
@@ -60,7 +59,7 @@
 								<!-- ejemplo de como se mostraran los productos -->
 									<div class="col-sm-4">
 										<img class="img-thumbnail img-responsive"
-											src="C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/images/categories/blusa de mujer.jpeg">
+											th:src="@{/images/categories/blusa de mujer.jpeg}">
 									</div>
 									<div class="col-sm-4">
 										<h4>Blusa de mujer color gris, talla S, con encaje en el
