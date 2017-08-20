@@ -1,9 +1,5 @@
 body {
-<<<<<<< HEAD
-	background-image: url(th:src="@{/images/categories/black_lozenge.png}");
-=======
 	background-image: url("C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/images/categories/darkness.png ");
->>>>>>> refs/remotes/origin/master
 }
 
 .panel-default > #principalHeading {
