@@ -1,0 +1,15 @@
+body {
+	background-image: url("C:/Users/deltadragon/Documents/Spring Projects/Aplicacion Web Aplicada/Spring-Proyecto-I-Aplicada/src/main/resources/images/categories/darkness.png ");
+}
+/*css del heading del panel principal que contiene la lista de productos*/
+.panel-default > #principalHeading {
+	background-color: #1a1a1a;
+	color: #999999;
+	font-size: 40px;
+}
+/*css del heading del panel de categorias*/
+.panel-default > #categoryHeading {
+	background-color: #1a1a1a;
+	color: #999999;
+	font-size: 20px;
+}

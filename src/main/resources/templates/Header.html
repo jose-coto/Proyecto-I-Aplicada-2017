@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>CoreVises</title>
+<meta charset=UTF-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link th:href="@{/css/stylePanel.css}" rel="stylesheet">
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="#">CoreVises</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><input style="margin-top: 7px;" class="form-control"
+						type="text" id="search"
+						placeholder="Ingresa tu criterio de busqueda" size=40px></li>
+					<li><a href="#" id="btn-search"> <span
+							class="glyphicon glyphicon-search"></span> Buscar
+					</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"> <span class="glyphicon glyphicon-user"></span>
+							Login
+					</a></li>
+					<li><a href="#"> <span class="glyphicon glyphicon-inbox"></span>
+							Sing Up
+					</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$('#search').animate({
+			width : 'toggle'
+		}).focus();
+	</script>
+
+	<script type="text/javascript">
+		(function() {
+			$('#btn-search').on('click', function(e) {
+				var text = document.getElementById('search').value;
+				if (text == "") {
+					e.preventDefault();
+					$('#search').animate({
+						width : 'toggle'
+					}).focus();
+				} else {
+					location.href = "List?search=" + text;
+				}
+			});
+
+		}());
+	</script>
+
+</body>
+</html>
