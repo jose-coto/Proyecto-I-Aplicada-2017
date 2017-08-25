@@ -15,39 +15,147 @@
 	href="http://fonts.googleapis.com/css?family=Open+Sans">
 <title>Login</title>
 </head>
-<body>
 
-	<div class="Header"></div>
-	<div class="container" align="center"
-		style="margin-top: 12%; width: 30%; height: 30%">
+<style>
+.body {
+	background-color: #E8E8E3;
+}
 
-		<form action="#" th:action="@{}" method="post">
-			<div class="panel panel-default">
-				<div class="panel-heading">Sing in to CoreVises</div>
-				<div class="panel-body">
-					<div class="form-group" style="max-width: 70%;">
-						<input name="user" type="text" class="form-control"
-							placeholder="Username">
-					</div>
-					<div class="form-group" style="max-width: 70%;">
-						<input name="password" type="password" class="form-control"
-							placeholder="Password">
-					</div>
-					<div class="g-recaptcha"
-						data-sitekey="6LcmkCUUAAAAADsglxGAmFm73E7zyFSl00f5YWjT"></div>
-					<div class="modal-footer">
-						<div class="row">
-							<div class="col-sm-2" style="border-color: #0E8E99;">
-								<button type="submit" name="login" class="btn btn-success">
-									Login</button>
-							</div>
+.panel-default>#loginPanel {
+	background-color: #FFB50F;
+}
+</style>
+
+<body class="body">
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="#">CoreVises</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><input style="margin-top: 7px;" class="form-control"
+						type="text" id="search"
+						placeholder="Ingresa tu criterio de busqueda" size=40px></li>
+					<li><a href="#" id="btn-search"> <span
+							class="glyphicon glyphicon-search"></span> Buscar
+					</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"> <span class="glyphicon glyphicon-user"></span>
+							Login
+					</a></li>
+					<li><a href="#"> <span class="glyphicon glyphicon-inbox"></span>
+							Sing Up
+					</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$('#search').animate({
+			width : 'toggle'
+		}).focus();
+	</script>
+
+	<script type="text/javascript">
+	(function() {
+		$('#btn-search').on('click', function(e) {
+			var text = document.getElementById('search').value;
+			if (text == "") {
+				e.preventDefault();
+				$('#search').animate({
+					width : 'toggle'
+				}).focus();
+			} else {
+				location.href = "List?search=" + text;
+			}
+		});
+
+	}());
+</script>
+
+	<div class="row">
+
+		<div class="col-sm-6" align="center">
+
+	<div class="container"
+		style="width: 60%; height: 30%; margin-top: 15%">
+
+		<!-- <form action="#" th:action="@{}" method="post"> -->
+		<div class="panel-default" id="loginPanel">
+			<div class="panel-heading" id="loginPanel" style="text-align: center">
+				<font color="white">Login in to CoreVises</font>
+			</div>
+			<div class="panel-body">
+
+				<div class="form-group" style="max-width: 100%;">
+					<input name="userName" type="text" class="form-control"
+						placeholder="Username">
+				</div>
+				<div class="form-group" style="max-width: 100%;">
+					<input name="password" type="password" class="form-control"
+						placeholder="Password">
+				</div>
+				<div class="modal-footer" style="max-width: 100%;">
+					<div class="row">
+					  <div class="g-recaptcha" data-sitekey="6LfzGy4UAAAAAJkN-o4TMXKe6npvLMm-EpRUIlRw"></div>
+			
+						<div class="col-sm-3" style="border-color: #0E8E99;">
+							<button type="submit" name="btnlogin" class="btn btn-warning">
+								Login</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</form>
+		</div>
+		<!-- </form> -->
 	</div>
-<div class="Footer"></div>
+</div>
+<div class="col-sm-6" align="center">
+<img  class="img-responsive" th:src="@{/images/wallpapers/wallpaper2.png}">
+</div>
+</div>
+
+	<footer class="footer"
+		style="background-color: #000000; height: 55px; width: 100%;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6" style=" height: 54px; padding-top: 20px;">
+					<span><font color="white">Copyrigth @ 2017 CoreVises</font></span>
+				</div>
+				<div class="col-sm-6">
+					<div style="height: 50px; padding-top: 5px;">
+						<a href="URL DE TU RED SOCIAL"><img
+							class="img-thumbnail img-responsive"
+							th:src="@{/images/footer/facebookLogo.png}" /></a> <a
+							href="URL DE TU RED SOCIAL"><img
+							class="img-thumbnail img-responsive"
+							th:src="@{/images/footer/facebookLogo.png}" /></a> <a
+							href="URL DE TU RED SOCIAL"><img
+							class="img-thumbnail img-responsive"
+							th:src="@{/images/footer/facebookLogo.png}" /></a> <a
+							href="URL DE TU RED SOCIAL"><img
+							class="img-thumbnail img-responsive"
+							th:src="@{/images/footer/facebookLogo.png}" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 </body>
 </html>

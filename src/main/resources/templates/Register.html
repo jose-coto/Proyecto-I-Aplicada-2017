@@ -21,7 +21,7 @@
 }
 
 .panel-default>#registerPanel {
-	background-color: #FF9D0F;
+	background-color: #FFB50F;
 }
 </style>
 
@@ -89,14 +89,14 @@
 
 	<div class="row">
 
-		<div class="col-sm-6">
-		<img th:src="@{/images/wallpapers/wallpaper1.png}">
+		<div class="col-sm-6" align="center">
+		<img  class="img-responsive" th:src="@{/images/wallpapers/wallpaper1.png}">
 		</div>
 		<div class="col-sm-6">
 			<div class="container"
 				style="align-content: center; width: 70%; height: 10%;">
 
-				<form action="#" th:action="@{}" method="post">
+				<!-- <form action="#" th:action="@{}" method="post"> -->
 					<div class="panel-default" id="registerPanel">
 						<div class="panel-heading" id="registerPanel"
 							style="text-align: center">
@@ -129,14 +129,14 @@
 							<div class="modal-footer" style="max-width: 100%;">
 								<div class="row">
 									<div class="col-sm-2" style="border-color: #0E8E99;">
-										<button type="submit" name="login" class="btn btn-warning">
+										<button type="submit" name="btnRegister" class="btn btn-warning">
 											Sing up</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</form>
+				<!-- </form> -->
 			</div>
 		</div>
 	</div>
@@ -149,7 +149,7 @@
 					<span><font color="white">Copyrigth @ 2017 CoreVises</font></span>
 				</div>
 				<div class="col-sm-6">
-					<div style="height: 55px; padding-top: 5px;">
+					<div style="height: 50px; padding-top: 5px;">
 						<a href="URL DE TU RED SOCIAL"><img
 							class="img-thumbnail img-responsive"
 							th:src="@{/images/footer/facebookLogo.png}" /></a> <a
