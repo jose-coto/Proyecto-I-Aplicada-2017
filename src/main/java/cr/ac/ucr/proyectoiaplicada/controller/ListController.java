@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import cr.ac.ucr.proyectoiaplicada.business.CategoryBusiness;
 import cr.ac.ucr.proyectoiaplicada.business.ProductBusiness;
+import cr.ac.ucr.proyectoiaplicada.domain.Category;
 import cr.ac.ucr.proyectoiaplicada.domain.Product;
 
 @Controller
@@ -18,13 +20,16 @@ public class ListController {
     
 	@Autowired
 	private ProductBusiness productBusiness;
+	@Autowired
+	private CategoryBusiness categoryBusiness;
 	
 	private List<Product> productList;
+	private List<Category> categoryList;
 	
-	private PagedList paged;
+	private PagedList paged;//instancia de la clase que permite realizar la paginacion
 
-	private int pagActual = 0;
-	private int quantity = 0;
+	private int pagActual = 0;//pagina actual en la paginacion
+	private int quantity = 0;//elementos totales que retorna el web services
 	private final int ELEM_PAGES = 5; // elementos visibles por cada pagina
 
 	String criterioBusqueda = "";
@@ -36,16 +41,17 @@ public class ListController {
 //		criterioBusqueda = (String) request.getParameter("search");
 
 		productList = productBusiness.GetAllProducts();
+		categoryList= categoryBusiness.GetAllCategories();
 		
 		pagActual = 0; // reinicia la pagina visible actual a 0
 		paged = new PagedList(ELEM_PAGES, productList);
 
 		quantity = productList.size();
 
-		model.addAttribute("productList", productList);
+		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("search", criterioBusqueda);
 		model.addAttribute("quantityProducts", quantity);
-		model.addAttribute("products", paged.getPage(pagActual));
+		model.addAttribute("productList", paged.getPage(pagActual));
 		model.addAttribute("pageActual", pagActual);
 		model.addAttribute("totalPages", paged.totalPages - 1);
 
@@ -58,6 +64,7 @@ public class ListController {
 			pagActual++;
 		}
 		
+		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("search", criterioBusqueda);
 		model.addAttribute("quantityProducts", quantity);
 		model.addAttribute("productList", paged.getPage(pagActual));
@@ -72,6 +79,7 @@ public class ListController {
 			pagActual--;
 		}
 		
+		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("search", criterioBusqueda);
 		model.addAttribute("quantityProducts", quantity);
 		model.addAttribute("productList", paged.getPage(pagActual));
@@ -80,6 +88,7 @@ public class ListController {
 		return "List";
 	}
 
+	//Clase privada que permite realizar la paginacion
 	private class PagedList {
 
 		private int Quantity_Element;
@@ -97,7 +106,7 @@ public class ListController {
 
 		private void generatePages() {
 			// el total de paginas es calculado con el modulo de la cantidad de
-			// libros entre la cantidad de elementos visibles por pagina
+			// productos entre la cantidad de elementos visibles por pagina
 
 			totalPages = (products.size() % Quantity_Element == 0 ? products.size() / Quantity_Element
 					: products.size() / Quantity_Element + 1);
@@ -120,6 +129,7 @@ public class ListController {
 			}
 		}// generatePages()
 
+		//retorna una lista con la cantidad de elementos que se quiere visualizar
 		public List<Product> getPage(int page) {
 			return pages.get(page);
 		}// getPage()
