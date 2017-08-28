@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CoreVises</title>
+<title th:text="#{titlePrincipal}"></title>
 <meta charset=UTF-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -16,6 +16,18 @@
 <body>
 	<div class="header"></div>
 
+	<!-- Permite que salga la opcion de cambiar idioma -->
+	<div class="container">
+		<div style="margin-left: 82%; padding-top: 8px;">
+			<span th:text="#{lang.change}"></span>: <select id="locales">
+				<option value=""></option>
+				<option value="en" th:text="#{lang.eng}"></option>
+				<option value="es" th:text="#{lang.es}"></option>
+			</select>
+		</div>
+	</div>
+	
+	
 	<!-- Container (Categories Section) -->
 	<div class="container-fluid text-center">
   		<br>
@@ -42,6 +54,18 @@
 
 	<div class="footer"></div>	
 
+	<!-- Script que permite cambiar el idioma -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('Principal?lang=' + selectedOption);
+				}
+			});
+		});
+	</script>
+	
 	<script type="text/javascript" th:src="@{/js/script.js}"></script>
 	<script type="text/javascript" th:src="@{/js/script1.js}"></script>
 </body>

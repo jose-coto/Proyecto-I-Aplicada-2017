@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CoreVises</title>
+<title th:text="#{titleHeader}"></title>
 <meta charset=UTF-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -12,7 +12,13 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link th:href="@{/css/stylePanel.css}" rel="stylesheet">
-
+<!--  
+<style type="text/css">
+	body{
+		background-color: #1a1a1a;
+	}
+</style>
+-->
 </head>
 <body>
 
@@ -26,24 +32,22 @@
 						class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="#">CoreVises</a>
+				<a class="navbar-brand" href="#" th:text="#{titleHeader}"></a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><input style="margin-top: 7px;" class="form-control"
 						type="text" id="search"
-						placeholder="Ingresa tu criterio de busqueda" size=40px></li>
-					<li><a href="#" id="btn-search"> <span
-							class="glyphicon glyphicon-search"></span> Buscar
+						th:placeholder="#{placeHolderSearchHeader}" size=40px></li>
+					<li><a href="#" id="btn-search" th:text="#{searchHeader}"> <span
+							class="glyphicon glyphicon-search"></span>
 					</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"> <span class="glyphicon glyphicon-user"></span>
-							Login
+					<li><a href="#" th:text="#{loginHeader}"> <span class="glyphicon glyphicon-user"></span>
 					</a></li>
-					<li><a href="#"> <span class="glyphicon glyphicon-inbox"></span>
-							Sing Up
+					<li><a href="#" th:text="#{singUpHeader}"> <span class="glyphicon glyphicon-inbox"></span>
 					</a></li>
 				</ul>
 			</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CoreVises</title>
+<title th:text="#{titleList}"></title>
 <meta charset=UTF-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -19,26 +19,38 @@
 	<!--  Iframe -->
 	<div class="header">
 	</div>
+	
+	<!-- Permite que salga la opcion de cambiar idioma -->
+	<div class="container">
+		<div style="margin-left: 82%; padding-top: 8px;">
+			<span th:text="#{lang.change}"></span>: <select id="locales">
+				<option value=""></option>
+				<option value="en" th:text="#{lang.eng}"></option>
+				<option value="es" th:text="#{lang.es}"></option>
+			</select>
+		</div>
+	</div>
+	
 	<div class="container-fluid text-center">
 		<br>
 		<div class="row">
 			<div class="col-sm-2">
 				<div class="panel panel-default" id="categoryPanel">
-					<div class="panel-heading" id="categoryHeading">Categorias</div>
+					<div class="panel-heading" id="categoryHeading" th:text="#{headerCategoryList}"></div>
 					<div class="panel-body">
 						<ul class="list-group">
 							<!--for para asignar las categorias que se traen del mvc-->
 							<!-- muestra -->
-							<li class="list-group-item"><button type="button"
-									class="btn btn-link">Tecnologia</button></li>
-							<li class="list-group-item"><button type="button"
-									class="btn btn-link">Linea blanca</button></li>
-							<li class="list-group-item"><button type="button"
-									class="btn btn-link">Ropa</button></li>
-							<li class="list-group-item"><button type="button"
-									class="btn btn-link">Libros</button></li>
-							<li class="list-group-item"><button type="button"
-									class="btn btn-link">Accesorios</button></li>
+							<li class="list-group-item">
+								<button type="button" class="btn btn-link" th:text="#{tecnologyCategoryList}"></button></li>
+							<li class="list-group-item">
+								<button type="button" class="btn btn-link" th:text="#{lineaBlancaCategoryList}"></button></li>
+							<li class="list-group-item">
+								<button type="button" class="btn btn-link" th:text="#{ropaCategoryList}"></button></li>
+							<li class="list-group-item">
+								<button type="button" class="btn btn-link" th:text="#{bookCategoryList}"></button></li>
+							<li class="list-group-item">
+								<button type="button" class="btn btn-link" th:text="#{accesoriosCategoryList}"></button></li>
 							</li>
 						</ul><!-- fin de el menu de categorias -->
 					</div><!-- fin del body del panel -->
@@ -51,13 +63,13 @@
 						<div th:if="${productList.isEmpty()}">
 						<br>
 							<div class="alert alert-danger">
-								<strong>Error</strong>
-									<h4>Ha ocurrido un problema</h4>
+								<strong th:text="#{errorList}"></strong>
+									<h4 th:text="#{messageErrorList}"></h4>
 							</div>
 						</div>
 					</div>
 				<div th:if="${!productList.isEmpty()}">
-						<div class="panel-heading" id="principalHeading">Ropa</div>
+						<div class="panel-heading" id="principalHeading" th:text="#{headerProductList}"></div>
 						<div class="panel-body">
 							<div class="row">
 								<div class="panel panel-default" id="productPanel" th:each="entry,status : ${productList}">
@@ -75,9 +87,8 @@
 											<h1 th:text="${'CRC '+entry.price}"></h1>
 											<!-- <h4 th:text="${'USD '+entry.dollarPrice}">
 											</h4>-->
-											<button type="button" class="btn-lg">
+											<button type="button" class="btn-lg" th:text="#{cartButtonList}">
 												<span class="glyphicon glyphicon-shopping-cart"></span>
-												Agregar al Carrito
 											</button>
 										</div>
 
@@ -92,22 +103,39 @@
 		<div th:if="${quantityProducts>5}">
 			<div class="container">
 				<ul class="pagination">
-					<li th:if="${pageActual>0}"><a th:href="@{/List/prev}" name="prev">Prev</a></li>
-					<li th:if="${totalPages>pageActual}"><a th:href="@{/List/next}" name="next">Next</a></li>
+					<li th:if="${pageActual>0}"><a th:href="@{/List/prev}" name="prev" th:text="#{prevPaginationList}"></a></li>
+					<li th:if="${totalPages>pageActual}"><a th:href="@{/List/next}" name="next" th:text="#{nextPaginationList}"></a></li>
 				</ul>
 			</div>
 		</div>
 	</div><!-- container-fluid text-center -->
 	
 	<div class="footer"></div>
+	
+		<!-- Script que permite cambiar el idioma -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#locales").change(function() {
+				var selectedOption = $('#locales').val();
+				if (selectedOption != '') {
+					window.location.replace('List?lang=' + selectedOption);
+				}
+			});
+		});
+	</script>
+	
+	<script th:inline="javascript">
+	var id=[[${busqueda}]]
+	$(document).ready(function() {
+    $("#locales").change(function () {
+        var selectedOption = $('#locales').val();
+        if (selectedOption != ''){
+            window.location.replace('List?search='+id+'?lang=' + selectedOption);
+        }
+    });
+});
+</script>
 	<!-- 	Permite cargar el header y footer -->
 	<script type="text/javascript" th:src="@{/js/script.js}"></script>
-	
-	<script>
-		function valueBtn(){
-   			var category  = document.getElementById('btnCategory').text();
-   			window.location.replace('/List?search='+category);
-		}
-	</script>
 </body>
 </html>
