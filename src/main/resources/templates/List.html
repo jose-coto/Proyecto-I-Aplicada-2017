@@ -26,13 +26,19 @@
 				<div class="panel panel-default" id="categoryPanel">
 					<div class="panel-heading" id="categoryHeading">Categorias</div>
 					<div class="panel-body">
-						<ul class="list-group" th:each="entryCategory,status : ${categoryList}">
+						<ul class="list-group">
 							<!--for para asignar las categorias que se traen del mvc-->
 							<!-- muestra -->
-							<li class="list-group-item">
-								<button id="btnCategory" type="button" class="btn btn-link" 
-									th:text="${entryCategory.name}">
-								</button>
+							<li class="list-group-item"><button type="button"
+									class="btn btn-link">Tecnologia</button></li>
+							<li class="list-group-item"><button type="button"
+									class="btn btn-link">Linea blanca</button></li>
+							<li class="list-group-item"><button type="button"
+									class="btn btn-link">Ropa</button></li>
+							<li class="list-group-item"><button type="button"
+									class="btn btn-link">Libros</button></li>
+							<li class="list-group-item"><button type="button"
+									class="btn btn-link">Accesorios</button></li>
 							</li>
 						</ul><!-- fin de el menu de categorias -->
 					</div><!-- fin del body del panel -->
@@ -67,9 +73,8 @@
 										</div>
 										<div class="col-sm-4">
 											<h1 th:text="${'CRC '+entry.price}"></h1>
-											<h4>
-												USD<span class="glyphicon glyphicon-usd"></span>500.00
-											</h4>
+											<!-- <h4 th:text="${'USD '+entry.dollarPrice}">
+											</h4>-->
 											<button type="button" class="btn-lg">
 												<span class="glyphicon glyphicon-shopping-cart"></span>
 												Agregar al Carrito

@@ -5,6 +5,7 @@ public class Product {
 	private String name;
 	private String description;
 	private float price;
+	private float dollarPrice;
 	private int quantity;
 	private String urlImage;
 	private String category;
@@ -21,6 +22,12 @@ public class Product {
 		this.quantity = quantity;
 		this.urlImage = urlImage;
 		this.category = category;
+	}
+	public float getDolarPrice() {
+		return dollarPrice;
+	}
+	public void setDolarPrice(float dolarPrice) {
+		this.dollarPrice = dolarPrice;
 	}
 	public int getCode() {
 		return code;

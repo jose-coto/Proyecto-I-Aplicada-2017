@@ -10,9 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import cr.ac.ucr.proyectoiaplicada.business.CategoryBusiness;
 import cr.ac.ucr.proyectoiaplicada.business.ProductBusiness;
-import cr.ac.ucr.proyectoiaplicada.domain.Category;
 import cr.ac.ucr.proyectoiaplicada.domain.Product;
 
 @Controller
@@ -20,11 +18,8 @@ public class ListController {
     
 	@Autowired
 	private ProductBusiness productBusiness;
-	@Autowired
-	private CategoryBusiness categoryBusiness;
 	
 	private List<Product> productList;
-	private List<Category> categoryList;
 	
 	private PagedList paged;//instancia de la clase que permite realizar la paginacion
 
@@ -41,20 +36,21 @@ public class ListController {
 //		criterioBusqueda = (String) request.getParameter("search");
 
 		productList = productBusiness.GetAllProducts();
-		categoryList= categoryBusiness.GetAllCategories();
 		
 		pagActual = 0; // reinicia la pagina visible actual a 0
 		paged = new PagedList(ELEM_PAGES, productList);
 
 		quantity = productList.size();
 
-		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("search", criterioBusqueda);
 		model.addAttribute("quantityProducts", quantity);
 		model.addAttribute("productList", paged.getPage(pagActual));
 		model.addAttribute("pageActual", pagActual);
 		model.addAttribute("totalPages", paged.totalPages - 1);
-
+		
+		for (Product ca : productList) {
+			System.out.println(ca.getDolarPrice());
+		}
 		return "List";
     }
 	
@@ -64,7 +60,6 @@ public class ListController {
 			pagActual++;
 		}
 		
-		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("search", criterioBusqueda);
 		model.addAttribute("quantityProducts", quantity);
 		model.addAttribute("productList", paged.getPage(pagActual));
@@ -79,7 +74,6 @@ public class ListController {
 			pagActual--;
 		}
 		
-		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("search", criterioBusqueda);
 		model.addAttribute("quantityProducts", quantity);
 		model.addAttribute("productList", paged.getPage(pagActual));
