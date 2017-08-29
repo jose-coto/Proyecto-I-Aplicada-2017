@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
+<title th:text="#{titleHeader}"></title>
 <meta charset=UTF-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -10,14 +10,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Open+Sans">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+<link th:href="@{/css/stylePanel.css}" rel="stylesheet">
 </head>
 <body>
-	<footer class="footer" style="height:55px; width: 100%;">
-      <div class="container">
+	      <div class="container">
       	<div class="row">
       		<div class="col-sm-6" style="height:55px; padding-top: 20px;">
         		<span>Copyrigth @ 2017  CoreVises</span>
@@ -32,6 +28,5 @@
         	</div>
       </div>
     	</div>
-    </footer>
 </body>
 </html>

@@ -12,4 +12,9 @@ public class HeaderController {
 	public String ShowHeader(Model model) {
 		return "Header";
 	}
+	
+	@RequestMapping(value = {"/Footer"}, method = RequestMethod.GET)
+	public String ShowFooter(Model model) {
+		return "Footer";
+	}
 }
